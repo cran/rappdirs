@@ -1,10 +1,10 @@
 Package: rappdirs
 Type: Package
-Title: Application directories: determine where to save data, caches
-        and logs.
-Version: 0.3
+Title: Application Directories: Determine Where to Save Data, Caches,
+        and Logs
+Version: 0.3.1
 Authors@R: c(
-    person("Hadley", "Wickham", email = "h.wickham@gmail.com",
+    person("Hadley", "Wickham", email = "hadley@rstudio.com",
     role = c("trl", "cre", "cph")),
     person("RStudio", role = "cph"),
     person("Sridhar", "Ratnakumar", role = "aut"),
@@ -19,7 +19,7 @@ Authors@R: c(
 Depends: R (>= 2.14), methods
 Suggests: testthat, roxygen2
 Description: An easy way to determine which directories on the users computer
-    you should use to save data, caches and logs. A port of Python's Appdirs
+    you should use to save data, caches and logs. A port of Python's 'Appdirs'
     (\url{https://github.com/ActiveState/appdirs}) to R.
 BugReports: https://github.com/hadley/rappdirs/issues
 URL: https://github.com/hadley/rappdirs
@@ -28,7 +28,9 @@ License: MIT + file LICENSE
 Copyright: Original python appdirs module copyright (c) 2010
         ActiveState Software Inc. R port copyright Hadley Wickham,
         RStudio. See file LICENSE for details.
-Packaged: 2014-09-02 15:34:08 UTC; hadley
+RoxygenNote: 5.0.1
+NeedsCompilation: yes
+Packaged: 2016-03-28 19:04:15 UTC; hadley
 Author: Hadley Wickham [trl, cre, cph],
   RStudio [cph],
   Sridhar Ratnakumar [aut],
@@ -39,7 +41,6 @@ Author: Hadley Wickham [trl, cre, cph],
   Trevor Davis [trl, aut],
   Gabor Csardi [ctb],
   Gregory Jefferis [ctb]
-Maintainer: Hadley Wickham <h.wickham@gmail.com>
-NeedsCompilation: yes
+Maintainer: Hadley Wickham <hadley@rstudio.com>
 Repository: CRAN
-Date/Publication: 2014-09-02 19:44:02
+Date/Publication: 2016-03-28 23:10:10
