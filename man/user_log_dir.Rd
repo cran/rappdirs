@@ -2,10 +2,16 @@
 % Please edit documentation in R/log.r
 \name{user_log_dir}
 \alias{user_log_dir}
-\title{Return full path to the user-specific log dir for this application.}
+\title{Path to user log directory}
 \usage{
-user_log_dir(appname = NULL, appauthor = appname, version = NULL,
-  opinion = TRUE, expand = TRUE, os = get_os())
+user_log_dir(
+  appname = NULL,
+  appauthor = appname,
+  version = NULL,
+  opinion = TRUE,
+  expand = TRUE,
+  os = NULL
+)
 }
 \arguments{
 \item{appname}{is the name of application. If NULL, just the system
@@ -18,7 +24,7 @@ it is the owning company name. This falls back to appname.}
 \item{version}{is an optional version path element to append to the
 path. You might want to use this if you want multiple versions
 of your app to be able to run independently. If used, this
-would typically be "<major>.<minor>". Only applied when appname
+would typically be \code{"<major>.<minor>"}. Only applied when appname
 is not NULL.}
 
 \item{opinion}{(logical) can be \code{FALSE} to disable the appending of
@@ -26,39 +32,35 @@ is not NULL.}
 base cache dir for Unix. See discussion below.}
 
 \item{expand}{If TRUE (the default) will expand the \code{R_LIBS} specifiers with their equivalents.
-See \code{\link{R_LIBS}} for list of all possibly specifiers.}
+See \code{\link[=R_LIBS]{R_LIBS()}} for list of all possibly specifiers.}
 
 \item{os}{Operating system whose conventions are used to construct the
-requested directory. Possible values are "win", "mac", "unix". If NULL
-(the default) then the convention of the current operating system
-(as determined by rappdirs:::get_os) will be used. This argument is
-unlikely to find much use outside package testing (see details section of
-\code{\link{user_data_dir}}).}
+requested directory. Possible values are "win", "mac", "unix". If \code{NULL}
+(the default) then the current OS will be used.}
 }
 \description{
 Typical user cache directories are:
 }
 \details{
 \itemize{
-  \item Mac OS X: \file{~/Library/Logs/<AppName>}
-  \item Unix: \file{~/.cache/<AppName>/log}, or under
-    \\env{$XDG_CACHE_HOME} if defined
-  \item Win XP:  \file{C:\\Documents and Settings\\<username>\\Local Settings\\Application Data\\<AppAuthor>\\<AppName>\\Logs}
-  \item Vista: 
-    \file{C:\\Users\\<username>\\AppData\\Local\\<AppAuthor>\\<AppName>\\Logs}
+\item Mac OS X: \file{~/Library/Logs/<AppName>}
+\item Unix: \file{~/.cache/<AppName>/log}, or under
+\\env{$XDG_CACHE_HOME} if defined
+\item Win XP:  \file{C:\\Documents and Settings\\<username>\\Local Settings\\Application Data\\<AppAuthor>\\<AppName>\\Logs}
+\item Vista:
+\file{C:\\Users\\<username>\\AppData\\Local\\<AppAuthor>\\<AppName>\\Logs}
 }
 
 On Windows the only suggestion in the MSDN docs is that local settings
-go in the \code{CSIDL_LOCAL_APPDATA} directory. (Note: I'm interested in
-examples of what some windows apps use for a logs dir.)
+go in the \code{CSIDL_LOCAL_APPDATA} directory.
 }
 \section{Opinion}{
 
-This function appends \file{Logs} to the `CSIDL_LOCAL_APPDATA`
+This function appends \file{Logs} to the \code{CSIDL_LOCAL_APPDATA}
 value for Windows and appends \file{log} to the user cache dir for Unix.
 This can be disabled with the \code{opinion = FALSE} option.
 }
-\examples{
-  user_log_dir()
-}
 
+\examples{
+user_log_dir()
+}

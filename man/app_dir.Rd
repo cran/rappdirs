@@ -2,10 +2,15 @@
 % Please edit documentation in R/appdir.r
 \name{app_dir}
 \alias{app_dir}
-\title{Convenience wrapper for getting app dirs.}
+\title{Record app information in a convenient object}
 \usage{
-app_dir(appname = NULL, appauthor = appname, version = NULL,
-  expand = TRUE, os = get_os())
+app_dir(
+  appname = NULL,
+  appauthor = appname,
+  version = NULL,
+  expand = TRUE,
+  os = NULL
+)
 }
 \arguments{
 \item{appname}{is the name of application. If NULL, just the system
@@ -18,30 +23,25 @@ it is the owning company name. This falls back to appname.}
 \item{version}{is an optional version path element to append to the
 path. You might want to use this if you want multiple versions
 of your app to be able to run independently. If used, this
-would typically be "<major>.<minor>". Only applied when appname
+would typically be \code{"<major>.<minor>"}. Only applied when appname
 is not NULL.}
 
 \item{expand}{If TRUE (the default) will expand the \code{R_LIBS} specifiers with their equivalents.
-See \code{\link{R_LIBS}} for list of all possibly specifiers.}
+See \code{\link[=R_LIBS]{R_LIBS()}} for list of all possibly specifiers.}
 
 \item{os}{Operating system whose conventions are used to construct the
-requested directory. Possible values are "win", "mac", "unix". If NULL
-(the default) then the convention of the current operating system
-(as determined by rappdirs:::get_os) will be used. This argument is
-unlikely to find much use outside package testing (see details section of
-\code{\link{user_data_dir}}).}
+requested directory. Possible values are "win", "mac", "unix". If \code{NULL}
+(the default) then the current OS will be used.}
 }
 \description{
 Has methods:
-}
-\details{
 \itemize{
-  \item \code{cache}
-  \item \code{log}
-  \item \code{data}
-  \item \code{config}
-  \item \code{site_data}
-  \item \code{site_config}
+\item \verb{$cache()}
+\item \verb{$log()}
+\item \verb{$data()}
+\item \verb{$config()}
+\item \verb{$site_data()}
+\item \verb{$site_config()}
 }
 }
 \examples{
@@ -53,4 +53,4 @@ ggplot2_app$config()
 ggplot2_app$site_config()
 ggplot2_app$site_data()
 }
-
+\keyword{internal}
