@@ -2,7 +2,7 @@ Type: Package
 Package: rappdirs
 Title: Application Directories: Determine Where to Save Data, Caches,
         and Logs
-Version: 0.3.2
+Version: 0.3.3
 Authors@R: 
     c(person(given = "Hadley",
              family = "Wickham",
@@ -47,7 +47,7 @@ Encoding: UTF-8
 RoxygenNote: 7.1.1
 Config/testthat/edition: 3
 NeedsCompilation: yes
-Packaged: 2021-01-27 12:38:18 UTC; hadley
+Packaged: 2021-01-28 22:29:57 UTC; hadley
 Author: Hadley Wickham [trl, cre, cph],
   RStudio [cph],
   Sridhar Ratnakumar [aut],
@@ -60,4 +60,4 @@ Author: Hadley Wickham [trl, cre, cph],
   Gregory Jefferis [ctb]
 Maintainer: Hadley Wickham <hadley@rstudio.com>
 Repository: CRAN
-Date/Publication: 2021-01-27 14:00:02 UTC
+Date/Publication: 2021-01-31 05:40:02 UTC
