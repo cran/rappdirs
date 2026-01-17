@@ -5,7 +5,7 @@
 #' \itemize{
 #'   \item Mac OS X: \file{~/Library/Logs/<AppName>}
 #'   \item Unix: \file{~/.cache/<AppName>/log}, or under
-#'     \\env{$XDG_CACHE_HOME} if defined
+#'     \env{$XDG_CACHE_HOME} if defined
 #'   \item Win XP:  \file{C:\\Documents and Settings\\<username>\\Local Settings\\Application Data\\<AppAuthor>\\<AppName>\\Logs}
 #'   \item Vista:
 #'     \file{C:\\Users\\<username>\\AppData\\Local\\<AppAuthor>\\<AppName>\\Logs}
@@ -26,19 +26,31 @@
 #' @examples
 #' user_log_dir()
 #' @export
-user_log_dir <- function(appname = NULL, appauthor = appname, version = NULL,
-                         opinion = TRUE, expand = TRUE, os = NULL) {
+user_log_dir <- function(
+  appname = NULL,
+  appauthor = appname,
+  version = NULL,
+  opinion = TRUE,
+  expand = TRUE,
+  os = NULL
+) {
   version <- check_version(version, appname, expand)
 
-  switch(check_os(os),
+  switch(
+    check_os(os),
     win = file_path(
-      win_path("local"), appauthor, appname, version,
+      win_path("local"),
+      appauthor,
+      appname,
+      version,
       if (opinion) "Logs"
     ),
     mac = file_path("~/Library/Logs", appname, version),
     unix = file_path(
       Sys.getenv("XDG_CACHE_HOME", "~/.cache"),
-      appname, version, if (opinion) "log"
+      appname,
+      version,
+      if (opinion) "log"
     )
   )
 }

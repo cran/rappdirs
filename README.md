@@ -5,10 +5,9 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/r-lib/rappdirs/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/rappdirs/actions)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/rappdirs)](https://CRAN.R-project.org/package=rappdirs)
-
+[![R-CMD-check](https://github.com/r-lib/rappdirs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/rappdirs/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/r-lib/rappdirs/graph/badge.svg)](https://app.codecov.io/gh/r-lib/rappdirs)
 <!-- badges: end -->
 
 `rappdirs` is a port of
@@ -34,11 +33,11 @@ or possibly:
     C:\Documents and Settings\<User>\Application Data\<AppAuthor>\<AppName>
 
 for [roaming
-profiles](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10))
+profiles](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10))
 but that is another story.
 
 On Linux (and other Unices) the dir, according to the [XDG
-spec](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+spec](https://specifications.freedesktop.org/basedir/basedir-spec-latest.html)
 (and subject to some interpretation), is either:
 
     ~/.config/<AppName>     
@@ -47,16 +46,30 @@ or possibly:
 
     ~/.local/share/<AppName>
 
+## Installation
+
+Stable version:
+
+``` r
+install.packages("rappdirs")
+```
+
+Development version:
+
+``` r
+pak::pak("r-lib/rappdirs")
+```
+
 ## Usage
 
 This kind of thing is what rappdirs is for. rappdirs will help you
 choose an appropriate:
 
--   user data dir (`user_data_dir()`)
--   user config dir (`user_config_dir()`)
--   user cache dir (`user_cache_dir()`)
--   site data dir (`site_data_dir()`)
--   user log dir (`user_log_dir()`)
+- user data dir (`user_data_dir()`)
+- user config dir (`user_config_dir()`)
+- user cache dir (`user_cache_dir()`)
+- site data dir (`site_data_dir()`)
+- user log dir (`user_log_dir()`)
 
 For example, on Mac:
 
